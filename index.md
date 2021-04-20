@@ -1,4 +1,5 @@
 # Lilli Fuller's Programming Portfolio 2020-21
+Lilli Fuller [Email](mailto:lillfull@granitesd.org)
 
 ## Processing Projects
 
