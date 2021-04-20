@@ -38,3 +38,10 @@ OOP calculator built in the Processing environment. Fall of 2020.
 
 Source code available [here](https://github.com/lillifuller/programming-portfolio/tree/gh-pages/src/MilesToKiloConverter).
 
+### EtchASketch
+OOP project built in the Processing environment. Fall of 2020.
+
+![Image of EtchaSketch](https://github.com/lillifuller/programming-portfolio/blob/gh-pages/images/etchasketch.png?raw=true)
+
+Source code available [here](https://github.com/lillifuller/programming-portfolio/tree/gh-pages/src/EtchASketch).
+
