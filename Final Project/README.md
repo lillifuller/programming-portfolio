@@ -5,7 +5,8 @@
 ### Created by Lilli Fuller
 
 Here is the UML class diagram.
-![Image of CrossTheRoad class diagram](https://github.com/lillifuller/programming-portfolio/blob/gh-pages/images/CrossTheRoad.png?raw=true]
+
+![Image of CrossTheRoad class diagram](https://github.com/lillifuller/programming-portfolio/blob/gh-pages/images/CrossTheRoad.png?raw=true)
 
 This is what the program will look like.
 
