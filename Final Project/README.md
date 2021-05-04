@@ -4,10 +4,12 @@
 
 ### Created by Lilli Fuller
 
-Here is the UML class diagram.
+UML class diagram.
 
 ![Image of CrossTheRoad class diagram](https://github.com/lillifuller/programming-portfolio/blob/gh-pages/images/CrossTheRoad.png?raw=true)
 
-This is what the program will look like.
+GUI Mockup
+
+![Image of CrossTheRoad GUI mockup](https://github.com/lillifuller/programming-portfolio/blob/gh-pages/images/CrossTheRoadGUI.png?raw=true)
 
 Find the source code [here](https://github.com/lillifuller/programming-portfolio/tree/gh-pages/src/CrossTheRoad)
