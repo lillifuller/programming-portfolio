@@ -23,6 +23,11 @@ void setup() {
   //for (int i = 0; i < car.length; i++) {
   //  car[i] = new Car(color(random(255), random(255), random(255)), 565, 3);
   //}
+  log[0] = new Log(int(random(width)), 300);
+  log[1] = new Log(int(random(width)), 325);
+  log[2] = new Log(int(random(width)), 300);
+  log[3] = new Log(int(random(width)), 300);
+  log[4] = new Log(int(random(width)), 300);
   powers = new ArrayList();
 }
 
