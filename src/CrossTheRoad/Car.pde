@@ -13,15 +13,15 @@ class Car {
   void display() {
     rectMode(CENTER);
     fill(0);
-    rect(x+7, y+5, 5, 3, 5);
-    rect(x-7, y+5, 5, 3, 5);
-    rect(x+7, y-5, 5, 3, 5);
-    rect(x-7, y-5, 5, 3, 5);
+    rect(x+7, y+7, 5, 3, 5);
+    rect(x-7, y+7, 5, 3, 5);
+    rect(x+7, y-7, 5, 3, 5);
+    rect(x-7, y-7, 5, 3, 5);
     fill(c);
-    rect(x, y, 20, 10, 3);
+    rect(x, y, 22, 14, 3);
     fill(#C5DAEA);
-    rect(x+5, y, 6, 8, 2);
-    rect(x-5, y, 6, 8, 2);
+    rect(x+7, y, 6, 8, 2);
+    rect(x-7, y, 6, 10, 2);
   }
 
   void move() {
