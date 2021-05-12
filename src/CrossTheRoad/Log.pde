@@ -5,14 +5,14 @@ class Log {
     this.x = x;
     this.y = y;
     this.speed = speed;
-    radius = 20;
+    radius = 12;
   }
 
   void display() {
-    noStroke();
+    stroke(0);
     rectMode(CENTER);
     fill(130, 77, 12);
-    rect(x, y, 30, 20);
+    rect(x, y, 36, 18);
   }
 
   void move() {
@@ -26,7 +26,7 @@ class Log {
   }
 
   boolean reachedSide() {
-    if (x > width+25) {
+    if (x > width+35) {
       return true;
     } else {
       return false;
