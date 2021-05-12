@@ -7,6 +7,7 @@ class Car {
     this.speed = speed;
     this.x = x;
     this.y = y;
+    radius = 10;
   }
 
   void display() {
