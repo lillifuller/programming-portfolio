@@ -1,6 +1,6 @@
 Player player;
 Car [] car = new Car [12];
-Log [] log = new Log [6];
+Log [] log = new Log [12];
 ArrayList<PowerUp> powers;
 int score;
 boolean play;
@@ -21,7 +21,7 @@ void setup() {
   car[8] = new Car(color(random(255), random(255), random(255)), int(random(width)), 114, 4);
   car[9] = new Car(color(random(255), random(255), random(255)), int(random(width)), 139, -4);
   car[10] = new Car(color(random(255), random(255), random(255)), int(random(width)), 164, 4);
-  car[11] = new Car(color(random(255), random(255), random(255)), int(random(width)), 189, -4);
+  car[11] = new Car(color(random(255), random(255), random(255)), int(random(width)), 39, -4);
   //for (int i = 0; i < car.length; i++) {
   //  car[i] = new Car(color(random(255), random(255), random(255)), 565, 3);
   //}
@@ -31,6 +31,12 @@ void setup() {
   log[3] = new Log(int(random(width)), 288, -2);
   log[4] = new Log(int(random(width)), 263, 2);
   log[5] = new Log(int(random(width)), 238, -2);
+  log[6] = new Log(int(random(width)), 363, 2);
+  log[7] = new Log(int(random(width)), 338, -2);
+  log[8] = new Log(int(random(width)), 313, 2);
+  log[9] = new Log(int(random(width)), 288, -2);
+  log[10] = new Log(int(random(width)), 263, 2);
+  log[11] = new Log(int(random(width)), 238, -2);
   powers = new ArrayList();
 }
 
@@ -88,18 +94,18 @@ void draw() {
       if (player.carIntersect(car[i])) {
         player.lives = player.lives-1;
         player.x = width/2;
-        player.y = 588;
+        player.y = 595;
       }
     }
     for (int i = 0; i < log.length; i++) {
       log[i].display();
       log[i].move();
       if (player.logIntersect(log[i])) {
-        player.x= player.x+log[i].speed;
-      } else if (!player.logIntersect(log[i]) && player.y<375 && player.y>235) {
-        player.lives= player.lives-1;
+        player.x = player.x+log[i].speed;
+      } else if (player.riverIntersect(log[i])) {
+        player.lives = player.lives-1;
         player.x = width/2;
-        player.y = 588;
+        player.y = 595;
       }
     }
 
@@ -109,7 +115,7 @@ void draw() {
     if (player.y<10) {
       score+=50;
       player.x = width/2;
-      player.y = 588;
+      player.y = 595;
     }
     if (player.lives<1) {
       play = false;
@@ -125,7 +131,8 @@ void startScreen() {
   textSize(17);
   text("Welcome to Cross The Road!", width/2, height/2);
   textSize(13);
-  text("Click to start...", width/2, height/2+30);
+  text("Use WASD to move,", width/2, height/2+30);
+  text("Click to start...", width/2, height/2+50);
   if (mousePressed) {
     play = true;
   }
