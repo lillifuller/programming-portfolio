@@ -5,14 +5,15 @@ class Player {
     x = 400;
     y = 588;
     lives = 3;
-    radius = 20;
+    radius = 10;
   }
 
   void display() {
     stroke(0);
     rectMode(CENTER);
     fill(0, 200, 0);
-    ellipse(x, y, radius, radius);
+    ellipse(x, y, 10, 15);
+    ellipse(x, y-10, 10, 10);
   }
 
   void move() {
@@ -31,7 +32,24 @@ class Player {
   }
 
 
-  //boolean carIntersect() {}
+  boolean carIntersect(Car car) {
+    float distance = dist(x, y, car.x, car.y);
+    if (distance < radius + car.radius) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  
+  boolean logIntersect(Log log) {
+    float distance = dist(x, y, log.x, log.y);
+    if (distance < radius + log.radius) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   //boolean powerIntersect() {}
+ 
 }
