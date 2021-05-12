@@ -1,23 +1,28 @@
 class Log {
   int x, y, radius, speed;
 
-  Log(int x, int y) {
-    x = 0;
-    y = int(random(200, 300));
+  Log(int x, int y, int speed) {
     this.x = x;
     this.y = y;
-    speed = 2;
-    radius = 30;
+    this.speed = speed;
+    radius = 20;
   }
 
   void display() {
     noStroke();
+    rectMode(CENTER);
     fill(130, 77, 12);
-    rect(x, y, 30, 15);
+    rect(x, y, 30, 20);
   }
 
   void move() {
-    x+=speed;
+    x += speed;
+    if (x > width) {
+      x = 0;
+    } 
+    if (x < width-width) {
+      x = width;
+    }
   }
 
   boolean reachedSide() {
