@@ -1,6 +1,6 @@
 Player player;
-Car [] car = new Car [10];
-Log [] log = new Log [5];
+Car [] car = new Car [12];
+Log [] log = new Log [6];
 ArrayList<PowerUp> powers;
 int score;
 boolean play;
@@ -14,28 +14,31 @@ void setup() {
   car[2] = new Car(color(random(255), random(255), random(255)), int(random(width)), 515, 4);
   car[3] = new Car(color(random(255), random(255), random(255)), int(random(width)), 490, -4);
   car[4] = new Car(color(random(255), random(255), random(255)), int(random(width)), 465, 4);
+  car[5] = new Car(color(random(255), random(255), random(255)), int(random(width)), 440, -4);
   //top part
-  car[5] = new Car(color(random(255), random(255), random(255)), int(random(width)), 64, 4);
-  car[6] = new Car(color(random(255), random(255), random(255)), int(random(width)), 89, -4);
-  car[7] = new Car(color(random(255), random(255), random(255)), int(random(width)), 114, 4);
-  car[8] = new Car(color(random(255), random(255), random(255)), int(random(width)), 139, -4);
-  car[9] = new Car(color(random(255), random(255), random(255)), int(random(width)), 164, 4);
+  car[6] = new Car(color(random(255), random(255), random(255)), int(random(width)), 64, 4);
+  car[7] = new Car(color(random(255), random(255), random(255)), int(random(width)), 89, -4);
+  car[8] = new Car(color(random(255), random(255), random(255)), int(random(width)), 114, 4);
+  car[9] = new Car(color(random(255), random(255), random(255)), int(random(width)), 139, -4);
+  car[10] = new Car(color(random(255), random(255), random(255)), int(random(width)), 164, 4);
+  car[11] = new Car(color(random(255), random(255), random(255)), int(random(width)), 189, -4);
   //for (int i = 0; i < car.length; i++) {
   //  car[i] = new Car(color(random(255), random(255), random(255)), 565, 3);
   //}
-  log[0] = new Log(int(random(width)), 300);
-  log[1] = new Log(int(random(width)), 325);
-  log[2] = new Log(int(random(width)), 300);
-  log[3] = new Log(int(random(width)), 300);
-  log[4] = new Log(int(random(width)), 300);
+  log[0] = new Log(int(random(width)), 363, 2);
+  log[1] = new Log(int(random(width)), 338, -2);
+  log[2] = new Log(int(random(width)), 313, 2);
+  log[3] = new Log(int(random(width)), 288, -2);
+  log[4] = new Log(int(random(width)), 263, 2);
+  log[5] = new Log(int(random(width)), 238, -2);
   powers = new ArrayList();
 }
 
 void draw() {
   noCursor();
-  //if (!play) {
-  //  //startScreen();
-  //} else {
+  if (!play) {
+    startScreen();
+  } else {
     background(100);
     rectMode(CORNER);
     stroke(0);
@@ -70,7 +73,7 @@ void draw() {
       rect(i, 523, 25, 5);
       rect(i, 498, 25, 5);
       rect(i, 473, 25, 5);
-      rect(i, 448, 25, 5); 
+      rect(i, 448, 25, 5);
     }
     //sidewalk cracks
     for (int j = 10; j < width-10; j+=40) {
@@ -82,17 +85,41 @@ void draw() {
     for (int i = 0; i < car.length; i++) {
       car[i].display();
       car[i].move();
+      if (player.carIntersect(car[i])) {
+        player.lives = player.lives-1;
+        player.x = width/2;
+        player.y = 588;
+      }
     }
-    
+    for (int i = 0; i < log.length; i++) {
+      log[i].display();
+      log[i].move();
+      if (player.logIntersect(log[i])) {
+        player.x= player.x+log[i].speed;
+      } else if (!player.logIntersect(log[i]) && player.y<375 && player.y>235) {
+        player.lives= player.lives-1;
+        player.x = width/2;
+        player.y = 588;
+      }
+    }
+
     player.display();
     player.move();
+    infoPanel();
+    if (player.y<10) {
+      score+=50;
+      player.x = width/2;
+      player.y = 588;
+    }
     if (player.lives<1) {
       play = false;
       gameOver();
     }
   }
-//}
+}
+
 void startScreen() {
+  fill(255);
   background(10);
   textAlign(CENTER);
   textSize(17);
@@ -105,10 +132,23 @@ void startScreen() {
 }
 
 void gameOver() {
+  fill(255);
   background(10);
   textAlign(CENTER);
   textSize(17);
   text("Game Over!", width/2, height/2);
   textSize(13);
   text("Score: " + score, width/2, height/2+30);
+  noLoop();
+}
+
+void infoPanel() {
+  stroke(0);
+  fill(255);
+  rectMode(CORNER);
+  textAlign(LEFT);
+  rect(0, height-50, 100, 50);
+  fill(0);
+  text("Score: " + score, 10, 570);
+  text("Lives: " + player.lives, 10, 586);
 }
