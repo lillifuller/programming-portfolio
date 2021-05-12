@@ -11,9 +11,16 @@ class Player {
   void display() {
     stroke(0);
     rectMode(CENTER);
+    line(x+5, y+5, x+10, y+10);
+    line(x+5, y-5, x+10, y-10);
+    line(x-5, y+5, x-10, y+10);
+    line(x-5, y-5, x-10, y-10);
     fill(0, 200, 0);
     ellipse(x, y, 10, 15);
     ellipse(x, y-10, 10, 10);
+    fill(0);
+    ellipse(x+3, y-10, 2, 2);
+    ellipse(x-3, y-10, 2, 2);
   }
 
   void move() {
@@ -27,7 +34,6 @@ class Player {
       } else if (key == 'd' || key == 'D' ) {
         x+=2;
       }
-      //ellipse(x, y, radius, radius);
     }
   }
 
@@ -40,10 +46,19 @@ class Player {
       return false;
     }
   }
-  
+
   boolean logIntersect(Log log) {
     float distance = dist(x, y, log.x, log.y);
-    if (distance < radius + log.radius) {
+    if (distance < radius + log.radius + 10) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  boolean riverIntersect(Log log) {
+    float distance = dist (x, y, log.x, log.y);
+    if (distance > radius + log.radius + 20 && player.y<375 && player.y>230 && !logIntersect(log)) {
       return true;
     } else {
       return false;
@@ -51,5 +66,4 @@ class Player {
   }
 
   //boolean powerIntersect() {}
- 
 }
