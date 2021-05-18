@@ -5,7 +5,7 @@ class Log {
     this.x = x;
     this.y = y;
     this.speed = speed;
-    radius = 12;
+    radius = 10;
   }
 
   void display() {
