@@ -49,7 +49,7 @@ class Player {
 
   boolean logIntersect(Log log) {
     float distance = dist(x, y, log.x, log.y);
-    if (distance < radius + log.radius + 10) {
+    if (distance < radius + log.radius) {
       return true;
     } else {
       return false;
