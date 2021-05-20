@@ -7,7 +7,10 @@ Lilli Fuller [Email](mailto:lillfull@granitesd.org)
 
 #### With obstacles such as cars, a river, and with special powerups, try to cross the road without dying in this interactive game. Spring of 2021
 
-UML class diagram.
+In-game screen capture
+![Image of CrossTheRoad in-game screen capture](https://github.com/lillifuller/programming-portfolio/blob/gh-pages/images/crosstheroad-screencap.png?raw=true)
+
+UML class diagram
 
 ![Image of CrossTheRoad class diagram](https://github.com/lillifuller/programming-portfolio/blob/gh-pages/images/CrossTheRoad.png?raw=true)
 
