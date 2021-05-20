@@ -102,10 +102,10 @@ void draw() {
       log[i].move();
       if (player.logIntersect(log[i])) {
         player.x = player.x+log[i].speed;
-      } else if (player.riverIntersect(log[i])) {
-        player.lives = player.lives-1;
-        player.x = width/2;
-        player.y = 595;
+      //} else if (player.riverIntersect(log[i])) {
+      //  player.lives = player.lives-1;
+      //  player.x = width/2;
+      //  player.y = 595;
       }
     }
 
@@ -116,6 +116,15 @@ void draw() {
       score+=50;
       player.x = width/2;
       player.y = 595;
+    }
+    if (player.x > width+5) {
+      player.x = width-5;
+    }
+    if (player.x < 0-5) {
+      player.x = 5;
+    }
+    if (player.y > height+5) {
+      player.y = height-5;
     }
     if (player.lives<1) {
       play = false;
